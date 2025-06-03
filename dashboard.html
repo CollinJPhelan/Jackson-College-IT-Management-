@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jackson College IT Asset Management - Dashboard</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div id="notificationBell" onclick="toggleNotifications()">
+  🔔<span id="notificationCount" class="badge">0</span>
+  <div id="notificationDropdown" class="dropdown" style="display:none;">
+    <div id="notificationList"></div>
+    <button onclick="clearNotifications()">Clear All</button>
+  </div>
+</div>
+
+<header>
+  <h1>Jackson College IT Asset Management</h1>
+  <div id="profile"></div>
+</header>
+
+<nav>
+ <button onclick="showSection('dashboard')">Dashboard</button>
+<button onclick="showSection('inventory')">Inventory</button>
+<button onclick="showSection('pending')">Pending Approvals</button>
+<button onclick="showSection('users')">User Management</button>
+<button onclick="showSection('settings')">Settings</button>
+<button onclick="showSection('auditlogs')">Audit Logs</button>
+  <button onclick="logout()">Logout</button>
+</nav>
+
+<main>
+<section id="dashboard">
+  <h2>Dashboard</h2>
+
+  <!-- Quick Stats Cards -->
+  <div class="card-grid">
+    <div class="card" id="totalAssets">Total Assets: 0</div>
+    <div class="card" id="pendingAssets">Pending Approvals: 0</div>
+    <div class="card" id="totalUsers">Total Users: 0</div>
+  </div>
+
+  <!-- Recent Activity -->
+  <h3>Recent Activity</h3>
+  <div id="recentActivity" class="card-list">
+    Loading recent actions...
+  </div>
+
+  <!-- Quick Actions -->
+  <h3>Quick Actions</h3>
+  <div class="card-grid">
+    <button onclick="showSection('inventory')">➕ Add/View Inventory</button>
+    <button onclick="showSection('pending')">🕓 Approve Assets</button>
+    <button onclick="showSection('users')">👥 Manage Users</button>
+  </div>
+
+  <!-- Backup Reminder -->
+  <div class="backup-reminder">
+    <p>🛡️ Don't forget to export a backup regularly to prevent data loss!</p>
+  </div>
+</section>
+
+
+  <section id="inventory" style="display:none;">
+    <h2>Inventory</h2>
+    <input type="text" id="searchInventory" placeholder="Search Inventory">
+   <div class="form-grid">
+  <input type="text" id="itemTag" placeholder="Tag Number">
+  <input type="text" id="itemMAC" placeholder="MAC Address">
+  <input type="text" id="itemSerial" placeholder="Serial Number">
+  <textarea id="itemNotes" placeholder="Notes"></textarea>
+  <label><input type="checkbox" id="itemCheckedOut"> Checked Out?</label>
+  <button onclick="addItem()">Submit Asset</button>
+</div>
+
+    <table id="inventoryTable">
+      <thead>
+        <tr>
+          <th>MAC Address</th>
+          <th>Tag Number</th>
+          <th>Serial Number</th>
+          <th>Date Added</th>
+          <th>Notes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="pending" style="display:none;">
+    <h2>Pending Asset Approvals</h2>
+    <table id="pendingTable">
+      <thead>
+        <tr>
+          <th>MAC Address</th>
+          <th>Tag Number</th>
+          <th>Serial Number</th>
+          <th>Date Added</th>
+          <th>Notes</th>
+          <th>Approve/Reject</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+<section id="users" style="display:none;">
+  <h2>User Management</h2>
+  <div class="form-grid">
+    <input type="text" id="newUsername" placeholder="New Username">
+    <input type="password" id="newPassword" placeholder="New Password">
+    <select id="newRole">
+      <option value="Member">Member</option>
+      <option value="Support">Support</option>
+      <option value="Tech">Tech</option>
+      <option value="Manager">Manager</option>
+      <option value="Admin">Admin</option>
+      <option value="Owner">Owner</option>
+    </select>
+    <button onclick="createUser()">Create User</button>
+  </div>
+
+  <table id="usersTable">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+ <section id="settings" style="display:none;">
+  <h2>Settings</h2>
+  <button onclick="toggleTheme()">Toggle Theme</button>
+  <button id="exportBtn" onclick="exportBackup()">Export Backup</button>
+  <input type="file" id="importFile" onchange="importBackup()">
+  <button id="clearUsersBtn" onclick="confirmClearUsers()">Clear All Users</button>
+  <button id="clearInventoryBtn" onclick="confirmClearInventory()">Clear All Inventory</button>
+  <button id="clearLogsBtn" onclick="confirmClearAuditLogs()">Clear All Audit Logs</button>
+
+  <!-- Self Password Reset -->
+  <div id="selfPasswordReset" style="margin-top: 20px;">
+    <h3>Change Your Password</h3>
+    <input type="password" id="newPassword" placeholder="New Password">
+    <button onclick="resetOwnPassword()">Update Password</button>
+  </div>
+
+</section>
+
+
+
+  <section id="auditlogs" style="display:none;">
+    <h2>Audit Logs</h2>
+    <input type="text" id="searchAudit" placeholder="Search Audit Logs">
+    <table id="auditTable">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>User</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+
+
+</main>
+
+<script src="js/dashboard.js"></script>
+<script src="js/inventory.js"></script>
+<script src="js/users.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/auditlog.js"></script>
+<script src="js/notifications.js"></script>
+
+</body>
+</html>

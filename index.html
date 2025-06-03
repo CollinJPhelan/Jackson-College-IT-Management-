@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jackson College IT Asset Management – Login</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="auth-body">
+
+<div class="auth-container">
+  <h1>Jackson College IT Asset Management</h1>
+
+  <div class="tab-switch">
+    <button onclick="showLogin()" id="loginTab" class="active">Login</button>
+    <button onclick="showRegister()" id="registerTab">Register</button>
+  </div>
+
+  <div id="loginBox" class="auth-box">
+    <label>Username</label>
+    <input type="text" id="loginUsername">
+    <label>Password</label>
+    <input type="password" id="loginPassword">
+    <label id="label2FA" style="display:none;">2FA Code (Admins only)</label>
+    <input type="text" id="login2FA" style="display:none;">
+    <button onclick="login()">Login</button>
+    <a href="#" onclick="resetPassword()">Forgot Password?</a>
+  </div>
+
+  <div id="registerBox" class="auth-box" style="display:none;">
+    <label>Choose Username</label>
+    <input type="text" id="regUsername">
+    <label>Choose Password</label>
+    <input type="password" id="regPassword">
+    <button onclick="register()">Register</button>
+  </div>
+
+  <footer>
+    <small>&copy; 2025 Jackson College IT</small>
+  </footer>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+  function showLogin() {
+    document.getElementById('loginBox').style.display = 'block';
+    document.getElementById('registerBox').style.display = 'none';
+    document.getElementById('loginTab').classList.add('active');
+    document.getElementById('registerTab').classList.remove('active');
+  }
+
+  function showRegister() {
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('registerBox').style.display = 'block';
+    document.getElementById('loginTab').classList.remove('active');
+    document.getElementById('registerTab').classList.add('active');
+  }
+</script>
+
+</body>
+</html>
