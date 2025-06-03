@@ -1,0 +1,417 @@
+/* assets/style.css */
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #800000;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  background: #800000;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+nav button {
+  background: #FFFFFF;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  background: #2980b9;
+}
+
+/* Main Sections */
+main {
+  padding: 20px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #800000;
+  color: white;
+}
+
+/* Forms */
+input[type="text"], input[type="password"], input[type="file"], select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #800000;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+/* Login/Register */
+.login-container {
+  width: 300px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-container input {
+  margin-bottom: 10px;
+}
+
+.login-container button {
+  width: 100%;
+}
+
+/* Form Grids */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-grid textarea {
+  grid-column: 1 / span 2;
+}
+
+/* Notifications */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.notification.error {
+  background: #f44336;
+}
+
+@keyframes fadein {
+  from { top: 0; opacity: 0; }
+  to { top: 20px; opacity: 1; }
+}
+
+@keyframes fadeout {
+  from { top: 20px; opacity: 1; }
+  to { top: 0; opacity: 0; }
+}
+
+/* Dark Theme */
+.dark-theme {
+  background: #1c1c1c;
+  color: #eee;
+}
+
+.dark-theme header, .dark-theme nav {
+  background: #111;
+}
+
+.dark-theme table, .dark-theme input, .dark-theme select, .dark-theme textarea, .dark-theme button {
+  background: #333;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+.dark-theme th {
+  background: #555;
+}
+
+/* Start Menu Style */
+.start-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.start-grid button {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.start-grid button:hover {
+  background: #800000;
+}
+
+/* Auth Page Styling */
+.auth-body {
+  background: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.auth-container {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.auth-container h1 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+.auth-box {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.auth-box label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.auth-box button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.auth-box a {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  margin-top: 10px;
+  color: #3498db;
+}
+
+.tab-switch {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab-switch button {
+  flex: 1;
+  background: #ecf0f1;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.tab-switch .active {
+  background: #800000;
+  color: white;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* Apply to all buttons */
+button {
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background-color: #800000; /* Maroon */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #a52a2a; /* Slightly brighter maroon on hover */
+  transform: scale(1.02);
+}
+
+#notificationBell {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #000;
+}
+
+#notificationBell .badge {
+  background: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 2px 6px;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+#notificationDropdown {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  width: 250px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  font-size: 14px;
+}
+
+#notificationDropdown div {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+#notificationDropdown button {
+  width: 100%;
+  padding: 10px;
+  background: #800000; /* or black if you want */
+  color: white;
+  border: none;
+  border-top: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 0;
+  font-weight: bold;
+}
+
+#notificationDropdown button:hover {
+  background: #a52a2a;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Stronger shadow */
+}
+
+.backup-reminder {
+  margin-top: 20px;
+  padding: 15px;
+  background: #ffe9e9;
+  border: 2px solid black;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#selfPasswordReset input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+#selfPasswordReset button {
+  width: 100%;
+  background: black;
+  color: white;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
